@@ -1,0 +1,12 @@
+.idea/
+install_pi.sh
+__pycache__
+*.egg-info/
+setup.sh
+stuff.txt
+audio/*
+!audio/.gitkeep
+models/conformer/*
+!models/conformer/.gitkeep
+functions/temp/
+temp/
