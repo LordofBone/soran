@@ -14,8 +14,12 @@ from tensorflow_asr.models.transducer.conformer import Conformer
 from tensorflow_asr.utils.data_util import create_inputs
 
 
+# thanks to: https://github.com/TensorSpeech/TensorFlowASR
 class SpeechInference(object):
     def __init__(self):
+        """
+        Initialize the speech inference class.
+        """
         config = Config(config_file)
         self.speech_featurizer = TFSpeechFeaturizer(config.speech_config)
 
@@ -31,6 +35,10 @@ class SpeechInference(object):
         self.conformer.add_featurizers(self.speech_featurizer, self.text_featurizer)
 
     def run_stt(self):
+        """
+        Run speech inference.
+        :return:
+        """
         signal = read_raw_audio(audio_file)
         features = self.speech_featurizer.tf_extract(signal)
         input_length = tf.shape(features)[0]

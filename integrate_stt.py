@@ -3,6 +3,10 @@ from functions.speech_input import listen
 
 
 def run_stt_inference():
+    """
+    Run speech inference.
+    :return:
+    """
     listen()
     return SpeechInferencer.run_stt()
 

@@ -3,6 +3,10 @@ from config.tensorflowasr import *
 
 
 def download_models():
+    """
+    Download the models from Google Drive.
+    :return:
+    """
     url = "https://drive.google.com/file/d/1d3OukHeysMKMfaGZUJ2JPO06yVzqVhWy/view?usp=sharing"
     gdown.download(url, model, quiet=False, fuzzy=True)
 
