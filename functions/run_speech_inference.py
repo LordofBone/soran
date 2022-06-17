@@ -20,19 +20,24 @@ class SpeechInference(object):
         """
         Initialize the speech inference class.
         """
-        config = Config(config_file)
-        self.speech_featurizer = TFSpeechFeaturizer(config.speech_config)
+        try:
+            config = Config(config_file)
+            self.speech_featurizer = TFSpeechFeaturizer(config.speech_config)
 
-        self.text_featurizer = SubwordFeaturizer.load_from_file(config.decoder_config, subwords_file)
+            self.text_featurizer = SubwordFeaturizer.load_from_file(config.decoder_config, subwords_file)
 
-        self.text_featurizer.decoder_config.beam_width = beam_width
+            self.text_featurizer.decoder_config.beam_width = beam_width
 
-        # build model
-        self.conformer = Conformer(**config.model_config, vocabulary_size=self.text_featurizer.num_classes)
-        self.conformer.make(self.speech_featurizer.shape)
-        self.conformer.load_weights(model, by_name=True, skip_mismatch=True)
-        self.conformer.summary(line_length=120)
-        self.conformer.add_featurizers(self.speech_featurizer, self.text_featurizer)
+            # build model
+            self.conformer = Conformer(**config.model_config, vocabulary_size=self.text_featurizer.num_classes)
+            self.conformer.make(self.speech_featurizer.shape)
+            self.conformer.load_weights(model, by_name=True, skip_mismatch=True)
+            self.conformer.summary(line_length=120)
+            self.conformer.add_featurizers(self.speech_featurizer, self.text_featurizer)
+
+        except Exception as e:
+            print("Please download the models from Google Drive using utils/model_downloader.py")
+            exit(1)
 
     def run_stt(self):
         """
