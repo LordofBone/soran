@@ -20,6 +20,9 @@ I have made this so that I can integrate into other projects such as my upcoming
 internet access.
 
 ##### Running Soran
+Install the requirements with:
+`pip install -r requirements.txt`
+
 Run soran/utils/model_dowloader.py to get the pre-trained conformer model.
 
 Then you can run integrate_stt.py and seeing if it can translate speech to text (ensure you have a microphone).
@@ -28,6 +31,22 @@ Then you can run integrate_stt.py and seeing if it can translate speech to text 
 Once cloned out from github, you can run the following command:
 
 `pip install -e soran/`
+
+If you are running on RPi you will need to remove the Tensorflow entries from the requirements.txt file and install
+it manually as it currently does not appear to be on the pip index.
+
+Follow the instructions here to install Tensorflow on RPi:
+Download the wheel for 2.7.0 Python 3 64 Bit ARM: https://github.com/Qengineering/TensorFlow-Raspberry-Pi_64-bit
+
+Then while still in the venv made above:
+
+PIP_EXTRA_INDEX_URL=https://snapshots.linaro.org/ldcg/python-cache/
+
+pip3 install tensorflow-2.7.0-cp39-cp39-linux_aarch64.whl
+
+The index URL is to include tensorflow-io which is required as per the issue here: https://github.com/tensorflow/io/issues/1441
+
+and it grabs that wheel from: https://snapshots.linaro.org/ldcg/python-cache/
 
 And this should install all dependencies.
 
