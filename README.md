@@ -4,10 +4,10 @@ speech recognition engine.
 
 This should work on both Windows x86_64 and Linux x86_64 and Raspberry Pi (test on a Pi 4 running 64 Bit RPi OS).
 
-It is called Guinan based off of the Star Trek character, [Guinan](https://memory-alpha.fandom.com/wiki/Tolian_Soran).
+It is called Soran based off of the Star Trek character, [Soran](https://memory-alpha.fandom.com/wiki/Tolian_Soran).
 
-##### What is deepspeech?
-Deepspeech is a speech recognition engine that is built on top of Google's [TensorFlow](https://www.tensorflow.org/) 
+##### What is TensorflowASR?
+TensorflowASR is a speech recognition engine that is built on top of Google's [TensorFlow](https://www.tensorflow.org/) 
 framework.
 
 It allows for local (offline) speech recognition, so you don't have to connect to an online API to perform decent 
