@@ -40,9 +40,9 @@ Download the wheel for 2.7.0 Python 3 64 Bit ARM: https://github.com/Qengineerin
 
 Then while still in the venv made above:
 
-PIP_EXTRA_INDEX_URL=https://snapshots.linaro.org/ldcg/python-cache/
+`PIP_EXTRA_INDEX_URL=https://snapshots.linaro.org/ldcg/python-cache/`
 
-pip3 install tensorflow-2.7.0-cp39-cp39-linux_aarch64.whl
+`pip3 install tensorflow-2.7.0-cp39-cp39-linux_aarch64.whl`
 
 The index URL is to include tensorflow-io which is required as per the issue here: 
 https://github.com/tensorflow/io/issues/1441
