@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='Soran',
     version='',
-    packages=['', 'audio', 'config', 'functions', 'utils'],
+    packages=['', 'config', 'functions', 'utils'],
     install_requires=[
         'absl-py',
         'appdirs',
