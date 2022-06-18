@@ -44,7 +44,8 @@ PIP_EXTRA_INDEX_URL=https://snapshots.linaro.org/ldcg/python-cache/
 
 pip3 install tensorflow-2.7.0-cp39-cp39-linux_aarch64.whl
 
-The index URL is to include tensorflow-io which is required as per the issue here: https://github.com/tensorflow/io/issues/1441
+The index URL is to include tensorflow-io which is required as per the issue here: 
+https://github.com/tensorflow/io/issues/1441
 
 and it grabs that wheel from: https://snapshots.linaro.org/ldcg/python-cache/
 
