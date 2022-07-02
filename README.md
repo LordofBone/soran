@@ -56,6 +56,13 @@ You can then go into the folder soran/utils and run model_dowloader.py to get th
 Then you can run a test by running integrate_stt.py and seeing if it can translate speech to text 
 (ensure you have a microphone).
 
-Then this can be integrated into another program by importing run_stt_inference from integrate_stt.py:
-`from soran.integrate_stt import run_stt_inference`
+Then this can be integrated into another program by importing SpeechInference from integrate_stt.py:
+`from soran.integrate_stt import SpeechtoTextHandler`
 Which can then be called from the program to record audio and get the text output.
+`SpeechtoText = SpeechtoTextHandler()`
+`SpeechtoText.initiate_recording()`
+`print(SpeechtoText.run_inference())
+
+Also the status of listening inferencing can be obtained from the class:
+`print(SpeechtoTextTest.inferencing)`
+`print(SpeechtoTextTest.listening)`
