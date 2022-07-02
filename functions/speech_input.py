@@ -3,6 +3,10 @@ from scipy.io.wavfile import write
 
 from config.tensorflowasr import *
 
+import logging
+
+logger = logging.getLogger("listener")
+
 
 def listen():
     """
@@ -17,11 +21,11 @@ def listen():
     sd.default.channels = 1
     sd.default.dtype = "int16"
 
-    print("Listening...")
+    logger.debug("Listening...")
 
     audio_in = sd.rec(int(seconds * fs), blocking=True)
 
-    print("Finished recording.")
+    logger.debug("Finished listening")
 
     write(str(audio_file), fs, audio_in)
 

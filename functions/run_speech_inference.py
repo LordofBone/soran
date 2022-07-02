@@ -13,6 +13,10 @@ from tensorflow_asr.featurizers.text_featurizers import SubwordFeaturizer
 from tensorflow_asr.models.transducer.conformer import Conformer
 from tensorflow_asr.utils.data_util import create_inputs
 
+import logging
+
+logger = logging.getLogger("inferencing")
+
 
 # thanks to: https://github.com/TensorSpeech/TensorFlowASR
 class SpeechInference(object):
@@ -44,6 +48,8 @@ class SpeechInference(object):
         Run speech inference.
         :return:
         """
+        logger.debug("Started Inferencing")
+
         signal = read_raw_audio(audio_file)
         features = self.speech_featurizer.tf_extract(signal)
         input_length = tf.shape(features)[0]
@@ -61,6 +67,8 @@ class SpeechInference(object):
                 signal, tf.constant(self.text_featurizer.blank, dtype=tf.int32),
                 self.conformer.predict_net.get_initial_state()
             )
+            logger.debug("Finished Inferencing")
+
             return tf.strings.unicode_encode(code_points, "UTF-8").numpy().decode("UTF-8")
 
 
