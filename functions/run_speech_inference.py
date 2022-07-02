@@ -51,25 +51,14 @@ class SpeechInference(object):
         logger.debug("Started Inferencing")
 
         signal = read_raw_audio(audio_file)
-        features = self.speech_featurizer.tf_extract(signal)
-        input_length = tf.shape(features)[0]
 
-        if beam_width:
-            inputs = create_inputs(features[None, ...], input_length[None, ...])
-            transcript = self.conformer.recognize_beam(inputs)
-        elif timestamp:
-            transcript, stime, etime, _, _ = self.conformer.recognize_tflite_with_timestamp(
-                signal, tf.constant(self.text_featurizer.blank, dtype=tf.int32),
-                self.conformer.predict_net.get_initial_state()
-            )
-        else:
-            code_points, _, _ = self.conformer.recognize_tflite(
-                signal, tf.constant(self.text_featurizer.blank, dtype=tf.int32),
-                self.conformer.predict_net.get_initial_state()
-            )
-            logger.debug("Finished Inferencing")
+        code_points, _, _ = self.conformer.recognize_tflite(
+            signal, tf.constant(self.text_featurizer.blank, dtype=tf.int32),
+            self.conformer.predict_net.get_initial_state()
+        )
+        logger.debug("Finished Inferencing")
 
-            return tf.strings.unicode_encode(code_points, "UTF-8").numpy().decode("UTF-8")
+        return tf.strings.unicode_encode(code_points, "UTF-8").numpy().decode("UTF-8")
 
 
 SpeechInferencer = SpeechInference()
