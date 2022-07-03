@@ -28,9 +28,14 @@ Run soran/utils/model_dowloader.py to get the pre-trained conformer model.
 Then you can run integrate_stt.py and seeing if it can translate speech to text (ensure you have a microphone).
 
 ##### Integrating Soran into a project
-Once cloned out from github, you can run the following command:
+If you want to integrate soran into another system, such as a robot - you can pull down the repo into the folder of
+the project you are working on, then append the system path of the soran folder to the system path of the project.
 
-`pip install -e soran/`
+`soran_dir = os.path.join( path_to_soran )`
+
+`sys.path.append(soran_dir)`
+
+You will also need to install everything in requirements.txt and/or add the requirements to your project's requirements.txt
 
 If you are running on RPi you will need to remove the Tensorflow entries from the requirements.txt file and install
 it manually as it currently does not appear to be on the pip index.
