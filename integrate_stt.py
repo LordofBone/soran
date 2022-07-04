@@ -6,6 +6,9 @@ import logging
 
 class SpeechtoTextHandler:
     def __init__(self):
+        """
+        Initialize the speech to text handler with current state.
+        """
         self.listening = False
         self.inferencing = False
 
