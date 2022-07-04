@@ -11,7 +11,6 @@ from tensorflow_asr.featurizers.speech_featurizers import read_raw_audio
 from tensorflow_asr.featurizers.speech_featurizers import TFSpeechFeaturizer
 from tensorflow_asr.featurizers.text_featurizers import SubwordFeaturizer
 from tensorflow_asr.models.transducer.conformer import Conformer
-from tensorflow_asr.utils.data_util import create_inputs
 
 import logging
 
