@@ -28,8 +28,8 @@ Run soran/utils/model_dowloader.py to get the pre-trained conformer model.
 Then you can run integrate_stt.py and seeing if it can translate speech to text (ensure you have a microphone).
 
 ##### Integrating Soran into a project
-If you want to integrate soran into another system, such as a robot - you can pull down the repo into the folder of
-the project you are working on, then append the system path of the soran folder to the system path of the project.
+If you want to integrate Soran into another system, such as a robot - you can pull down the repo into the folder of
+the project you are working on, then append the system path of the Soran folder to the system path of the project.
 
 `soran_dir = os.path.join( path_to_soran )`
 
@@ -61,7 +61,7 @@ You can then go into the folder soran/utils and run model_dowloader.py to get th
 Then you can run a test by running integrate_stt.py and seeing if it can translate speech to text 
 (ensure you have a microphone).
 
-Then this can be integrated into another program by importing SpeechInference from integrate_stt.py:
+Then importing SpeechInference from integrate_stt.py:
 `from soran.integrate_stt import SpeechtoTextHandler`
 Which can then be called from the program to record audio and get the text output.
 `SpeechtoText = SpeechtoTextHandler()`
