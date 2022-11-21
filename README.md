@@ -66,7 +66,7 @@ Then importing SpeechInference from integrate_stt.py:
 Which can then be called from the program to record audio and get the text output.
 `SpeechtoText = SpeechtoTextHandler()`
 `SpeechtoText.initiate_recording()`
-`print(SpeechtoText.run_inference())
+`print(SpeechtoText.run_inference())`
 
 Also the status of listening inferencing can be obtained from the class:
 `print(SpeechtoTextTest.inferencing)`
